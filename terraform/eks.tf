@@ -19,6 +19,21 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
 }
 
+
+resource "aws_iam_role_policy" "eks_node_sqs" {
+  name = "${var.project_name}-node-sqs-policy"
+  role = aws_iam_role.eks_node_group.name
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [{
+      Effect   = "Allow"
+      Action   = ["sqs:SendMessage", "sqs:GetQueueAttributes"]
+      Resource = aws_sqs_queue.trade_orders.arn
+    }]
+  })
+}
+
 # --- EKS Cluster ---
 resource "aws_eks_cluster" "main" {
   name     = var.cluster_name
