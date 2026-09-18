@@ -38,7 +38,7 @@ resource "aws_iam_role_policy" "eks_node_sqs" {
 resource "aws_eks_cluster" "main" {
   name     = var.cluster_name
   role_arn = aws_iam_role.eks_cluster.arn
-  version  = "1.32"
+  version  = "1.36"
 
   vpc_config {
     subnet_ids              = concat(aws_subnet.public[*].id, aws_subnet.private[*].id)
