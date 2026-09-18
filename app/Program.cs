@@ -5,6 +5,7 @@ using TradeApi.Services;
 using TradeApi.Configuration;
 using TradeApi.Middleware;
 using Amazon.SQS;
+using Prometheus;
 using Microsoft.Extensions.Options;
 using Azure.Identity;
 using Azure.Core;
@@ -50,6 +51,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseHttpMetrics(); // automatically tracks request count, duration, status codes for all endpoints
+app.MapMetrics();     // exposes /metrics endpoint in Prometheus format
 app.MapControllers();
 
 

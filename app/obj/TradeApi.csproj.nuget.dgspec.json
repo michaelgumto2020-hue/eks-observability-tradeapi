@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\aws-ha-three-tier-app\\app\\TradeApi.csproj": {}
+    "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\eks-observability-tradeapi\\app\\TradeApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\aws-ha-three-tier-app\\app\\TradeApi.csproj": {
+    "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\eks-observability-tradeapi\\app\\TradeApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\aws-ha-three-tier-app\\app\\TradeApi.csproj",
+        "projectUniqueName": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\eks-observability-tradeapi\\app\\TradeApi.csproj",
         "projectName": "TradeApi",
-        "projectPath": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\aws-ha-three-tier-app\\app\\TradeApi.csproj",
+        "projectPath": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\eks-observability-tradeapi\\app\\TradeApi.csproj",
         "packagesPath": "C:\\Users\\mgumto\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\aws-ha-three-tier-app\\app\\obj\\",
+        "outputPath": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\eks-observability-tradeapi\\app\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mgumto\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -79,6 +79,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[10.2.3, )"
+            },
+            "prometheus-net.AspNetCore": {
+              "target": "Package",
+              "version": "[8.2.1, )"
             }
           },
           "imports": [

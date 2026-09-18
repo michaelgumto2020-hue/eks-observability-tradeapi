@@ -988,6 +988,38 @@
           }
         }
       },
+      "prometheus-net/8.2.1": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Prometheus.NetStandard.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/Prometheus.NetStandard.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "prometheus-net.AspNetCore/8.2.1": {
+        "type": "package",
+        "dependencies": {
+          "prometheus-net": "8.2.1"
+        },
+        "compile": {
+          "lib/net6.0/Prometheus.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Prometheus.AspNetCore.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "RBush.Signed/4.0.0": {
         "type": "package",
         "compile": {
@@ -3512,6 +3544,42 @@
         "packageIcon.png"
       ]
     },
+    "prometheus-net/8.2.1": {
+      "sha512": "3wVgdEPOCBF752s2xps5T+VH+c9mJK8S8GKEDg49084P6JZMumTZI5Te6aJ9MQpX0sx7om6JOnBpIi7ZBmmiDQ==",
+      "type": "package",
+      "path": "prometheus-net/8.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net462/Prometheus.NetStandard.dll",
+        "lib/net462/Prometheus.NetStandard.xml",
+        "lib/net6.0/Prometheus.NetStandard.dll",
+        "lib/net6.0/Prometheus.NetStandard.xml",
+        "lib/net7.0/Prometheus.NetStandard.dll",
+        "lib/net7.0/Prometheus.NetStandard.xml",
+        "lib/netstandard2.0/Prometheus.NetStandard.dll",
+        "lib/netstandard2.0/Prometheus.NetStandard.xml",
+        "prometheus-net-logo.png",
+        "prometheus-net.8.2.1.nupkg.sha512",
+        "prometheus-net.nuspec"
+      ]
+    },
+    "prometheus-net.AspNetCore/8.2.1": {
+      "sha512": "/4TfTvbwIDqpaKTiWvEsjUywiHYF9zZvGZF5sK15avoDsUO/WPQbKsF8TiMaesuphdFQPK2z52P0zk6j26V0rQ==",
+      "type": "package",
+      "path": "prometheus-net.aspnetcore/8.2.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net6.0/Prometheus.AspNetCore.dll",
+        "lib/net6.0/Prometheus.AspNetCore.xml",
+        "prometheus-net-logo.png",
+        "prometheus-net.aspnetcore.8.2.1.nupkg.sha512",
+        "prometheus-net.aspnetcore.nuspec"
+      ]
+    },
     "RBush.Signed/4.0.0": {
       "sha512": "aP5KQxL5RnFNGW1f0euYVBfCatkLw5iEzMRJcXKq8LWWP4Cp3+qoSq1tDDL2vvJ2rM0ychmVMa2VaEKLS6uX4w==",
       "type": "package",
@@ -4017,7 +4085,8 @@
       "Microsoft.AspNetCore.OpenApi >= 10.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.10",
-      "Swashbuckle.AspNetCore >= 10.2.3"
+      "Swashbuckle.AspNetCore >= 10.2.3",
+      "prometheus-net.AspNetCore >= 8.2.1"
     ]
   },
   "packageFolders": {
@@ -4026,11 +4095,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\aws-ha-three-tier-app\\app\\TradeApi.csproj",
+      "projectUniqueName": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\eks-observability-tradeapi\\app\\TradeApi.csproj",
       "projectName": "TradeApi",
-      "projectPath": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\aws-ha-three-tier-app\\app\\TradeApi.csproj",
+      "projectPath": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\eks-observability-tradeapi\\app\\TradeApi.csproj",
       "packagesPath": "C:\\Users\\mgumto\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\aws-ha-three-tier-app\\app\\obj\\",
+      "outputPath": "C:\\Users\\mgumto\\OneDrive - Alvarez and Marsal\\Desktop\\Azure Labs\\eks-observability-tradeapi\\app\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mgumto\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -4098,6 +4167,10 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[10.2.3, )"
+          },
+          "prometheus-net.AspNetCore": {
+            "target": "Package",
+            "version": "[8.2.1, )"
           }
         },
         "imports": [
