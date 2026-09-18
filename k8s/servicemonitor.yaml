@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: tradeapi
+  namespace: tradeapi
+  labels:
+    release: monitoring   # must match the Helm release name so the Prometheus Operator picks it up
+spec:
+  selector:
+    matchLabels:
+      app: tradeapi
+  namespaceSelector:
+    matchNames:
+      - tradeapi
+  endpoints:
+    - port: http
+      path: /metrics
+      interval: 15s

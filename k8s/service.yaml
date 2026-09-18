@@ -3,11 +3,14 @@ kind: Service
 metadata:
   name: tradeapi
   namespace: tradeapi
+  labels:
+    app: tradeapi
 spec:
   type: LoadBalancer
   selector:
     app: tradeapi
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 8080
       protocol: TCP
