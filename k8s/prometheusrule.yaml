@@ -1,0 +1,45 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: tradeapi-slo-alerts
+  namespace: tradeapi
+  labels:
+    release: monitoring
+spec:
+  groups:
+    - name: tradeapi.slo
+      rules:
+        - alert: TradeApiAvailabilityBreach
+          expr: |
+            (
+              sum(rate(http_requests_received_total{namespace="tradeapi", exported_endpoint!="", code!~"5.."}[5m]))
+              /
+              sum(rate(http_requests_received_total{namespace="tradeapi", exported_endpoint!=""}[5m]))
+            ) < 0.995
+          for: 2m
+          labels:
+            severity: critical
+          annotations:
+            summary: "TradeApi availability below SLO (99.5%)"
+            description: "Availability has been below 99.5% for more than 2 minutes. Note: this alert can only detect elevated error rates among requests that reach a running pod — see TradeApiNoTargets for full-outage detection."
+
+        - alert: TradeApiLatencyBreach
+          expr: |
+            histogram_quantile(0.95,
+              sum(rate(http_request_duration_seconds_bucket{namespace="tradeapi", exported_endpoint!=""}[5m])) by (le)
+            ) > 0.3
+          for: 2m
+          labels:
+            severity: warning
+          annotations:
+            summary: "TradeApi p95 latency above SLO (300ms)"
+            description: "p95 latency has exceeded 300ms for more than 2 minutes."
+
+        - alert: TradeApiNoTargets
+          expr: absent(up{namespace="tradeapi", job="tradeapi"})
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "TradeApi has no scrape targets — service may be fully down"
+            description: "Prometheus cannot find any tradeapi targets to scrape. This typically means all pods are down, unreachable, or the ServiceMonitor's endpoints have vanished entirely. This alert exists specifically to catch full outages that the request-based availability alert cannot see, since a total outage produces no metrics at all rather than a bad ratio."
